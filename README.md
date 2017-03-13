@@ -8,7 +8,7 @@
 * OneSignal (Push Notifications) 
 * Facebook Login
 
-# In Play store (≈ 5k downloads)
+# In Play Store (≈ 5k downloads)
 * https://play.google.com/store/apps/details?id=br.com.abranches.vaitime
 
 
