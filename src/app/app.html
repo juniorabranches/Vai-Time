@@ -1,0 +1,41 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Vai Time</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="signup-background">
+
+    <ion-list>
+      <ion-list-header color="primary" class="buttonMenu" >Navegar</ion-list-header>
+      <!--<button menuClose ion-item icon-left (click)="goHome()"><ion-icon name="md-home"></ion-icon>Home</button>-->
+      <button menuClose ion-item icon-left (click)="goToTournaments()"><ion-icon name="md-search"></ion-icon>Buscar Campeonatos</button>
+      <button menuClose ion-item icon-left (click)="goToNews()"><ion-icon name="md-book"></ion-icon>Notícias</button>
+    </ion-list>
+    <ion-list>
+      <ion-list-header color="primary" class="buttonMenu" >Tabelas</ion-list-header>
+      <button menuClose ion-item icon-left (click)="goToResultGames()"><ion-icon name="md-podium"></ion-icon>Resultados</button>
+      <button menuClose ion-item icon-left (click)="goToNextGames()"><ion-icon name="md-football"></ion-icon>Próximos Jogos</button>
+    </ion-list>
+    <ion-list>
+      <ion-list-header  color="primary" class="buttonMenu" >Favoritos</ion-list-header>
+      <button menuClose ion-item icon-left *ngFor="let fav of favoriteTeams" (click)="goToTeam(fav)">
+        <ion-thumbnail item-left>
+          <img src={{fav.team.img}} style="width:40px">
+        </ion-thumbnail>
+        {{fav.team.name}}
+      </button>
+    </ion-list>
+    <ion-list>
+      <ion-list-header  color="primary" class="buttonMenu" >Sobre</ion-list-header>
+      <button menuClose ion-item icon-left (click)="goToVersao()"><ion-icon name="md-information-circle"></ion-icon>Informações</button>
+<!--      <button menuClose ion-item icon-left (click)="goToContato()"><ion-icon name="md-clipboard"></ion-icon>Contato</button>-->
+    </ion-list>
+
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,102 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button menuToggle ion-button icon-only>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Vai Time!</ion-title>
+    </ion-navbar>
+
+      <ion-toolbar color="secondary">
+          <ion-segment secondary [(ngModel)]="tournamentFilter">
+              <ion-segment-button value="Copa do Brasil" (click)="filtertournament('Copa do Brasil')" style="width:200px">
+                  Copa do Brasil
+              </ion-segment-button>
+              <ion-segment-button value="Libertadores" (click)="filtertournament('Libertadores')" style="width:200px">
+                  Libertadores
+              </ion-segment-button>
+              <ion-segment-button value="Primeira Liga" (click)="filtertournament('Primeira Liga')" style="width:200px">
+                  Prim. Liga
+              </ion-segment-button>
+              <ion-segment-button value="Copa Sul-Americana" (click)="filtertournament('Copa Sul-Americana')" style="width:200px">
+                  Sul-Americana
+              </ion-segment-button>
+              <ion-segment-button value="Campeonato Brasileiro" (click)="filtertournament('Campeonato Brasileiro')" style="width:200px">
+                  Brasileirão
+              </ion-segment-button>
+          </ion-segment>
+      </ion-toolbar>
+
+      <ion-toolbar color="secondary">
+        <ion-segment secondary [(ngModel)]="tournamentFilter">
+            <ion-segment-button value="Campeonato Paulista" (click)="filtertournament('Campeonato Paulista')" style="width:200px">
+                Paulistão
+            </ion-segment-button>
+            <ion-segment-button value="Campeonato Mineiro" (click)="filtertournament('Campeonato Mineiro')" style="width:200px">
+                Mineiro
+            </ion-segment-button>
+            <ion-segment-button value="Campeonato Carioca" (click)="filtertournament('Campeonato Carioca')" style="width:200px">
+                Carioca
+            </ion-segment-button>
+            <ion-segment-button value="Campeonato Gaúcho" (click)="filtertournament('Campeonato Gaúcho')" style="width:200px">
+                Gaúcho
+            </ion-segment-button>
+        </ion-segment>
+      </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="signup-background">
+
+  <ion-card *ngIf="semJogos">
+    <ion-card-header class="my-teams-header">Em processo de atualização</ion-card-header>
+    <ion-card-content>
+        <p>Em breve estará disponível :)</p>
+
+    </ion-card-content>
+  </ion-card>
+
+    <ion-list  *ngIf="!semJogos" [virtualScroll]="games" [approxItemHeight]="'132px'" [headerFn]="getHeader">
+
+        <ion-list-header color="secondary" text-center *virtualHeader="let header">
+            {{header}}
+        </ion-list-header>
+
+        <ion-item ion-item *virtualItem="let games" class="jogos">
+
+            <ion-row style="height:80px">
+              <ion-col class="X" width-15 text-center>
+                <p>{{games.date}}</p>
+                <p>{{games.hour}}</p>
+              </ion-col>
+              <ion-col width-30 text-center>
+                <img  src={{games.team1shedule}} style="width:40px">
+                <p>{{games.team1name}}</p>
+              </ion-col>
+              <ion-col class="X" width-5 text-center>
+                <ion-badge [color]="getScoreDisplayBadgeClass1(games)">{{games.team1score}}</ion-badge>
+              </ion-col>
+              <ion-col  class="X" width-10 text-center>
+                <img src="./assets/images/X.png" style="width:40px">
+              </ion-col>
+              <ion-col class="X" width-5 text-center>
+                <ion-badge [color]="getScoreDisplayBadgeClass2(games)">{{games.team2score}}</ion-badge>
+              </ion-col>
+              <ion-col width-35 text-center>
+                <img src={{games.team2shedule}} style="width:40px">
+                <p>{{games.team2name}}</p>
+              </ion-col>
+            </ion-row>
+
+        </ion-item>
+    </ion-list>
+
+
+
+
+
+
+
+
+
+
+</ion-content>

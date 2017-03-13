@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button menuToggle ion-button icon-only>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Vai Time!</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="signup-background">
+
+  <ion-toolbar color="secondary"> <ion-title>Fala Torcedor!</ion-title></ion-toolbar>
+
+      <ion-list inset>
+
+        <ion-row>
+          <ion-col width-40 text-left>
+            <ion-thumbnail item-center>
+              <img class="imgUser" src={{userPhoto}} style="width:80px">
+            </ion-thumbnail>
+          </ion-col>
+          <ion-col width-60 text-left>
+            <h2 class="textSuggestion">Deixe aqui seu comentário ou sugestão</h2>
+          </ion-col>
+        </ion-row>
+
+        <ion-item>
+          <ion-label>Nome</ion-label>
+          <ion-input [(ngModel)]="userName" type="text"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label>Comentário</ion-label>
+          <ion-textarea style="height:150px" [(ngModel)]="sugestion"  type="text"></ion-textarea>
+        </ion-item>
+
+      </ion-list>
+
+      <button ion-button icon-left block color="facebookColor" class="buttonEnviar" (click)="sendMessage(userName, userPhoto, null, sugestion)"  ><ion-icon name="md-football"></ion-icon>Enviar</button>
+
+</ion-content>

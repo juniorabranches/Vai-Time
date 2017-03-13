@@ -1,0 +1,86 @@
+<ion-header>
+    <ion-navbar></ion-navbar>
+
+    <!--<ion-toolbar>
+        <ion-segment secondary [(ngModel)]="divisionFilter" (ionChange)="filterDivision()">
+            <ion-segment-button value="division">
+                Divisão
+            </ion-segment-button>
+            <ion-segment-button value="all">
+                Tudo
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>-->
+</ion-header>
+
+<ion-content>
+
+    <ion-list [virtualScroll]="standings" [approxItemHeight]="'132px'">
+
+<!--        <ion-item-divider color="secondary" *virtualHeader="let header">
+            {{header}}
+        </ion-item-divider>-->
+
+        <ion-item *virtualItem="let team">
+            <ion-row>
+                <ion-thumbnail item-left>
+                  <img src={{team.shedule}} style="width:30px">
+                </ion-thumbnail>
+                <ion-col>
+                    <h2 color="primary">{{team.teamName}}</h2>
+                </ion-col>
+            </ion-row>
+            <h3 *ngIf="team.deleted" class="eliminado" color="white">ELIMINADO</h3>                                                
+            <ion-row>
+              <ion-col>
+                <ion-badge color="facebookColor">PTS.</ion-badge>
+              </ion-col>
+              <ion-col>
+                <ion-badge color="facebookColor">J</ion-badge>
+              </ion-col>
+                <ion-col>
+                  <ion-badge color="primary" >V</ion-badge>
+                </ion-col>
+                <ion-col>
+                  <ion-badge color="secondary" >E</ion-badge>
+                </ion-col>
+                <ion-col>
+                  <ion-badge color="danger" >D</ion-badge>
+                </ion-col>
+                <ion-col>
+                  <ion-badge color="facebookColor">SG</ion-badge>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <h4>{{team.points}}</h4>
+                </ion-col>
+                <ion-col>
+                    <h4>{{team.games}}</h4>
+                </ion-col>
+                <ion-col>
+                    <h4>{{team.wins}}</h4>
+                </ion-col>
+                <ion-col>
+                    <h4>{{team.draws}}</h4>
+                </ion-col>
+                <ion-col>
+                    <h4>{{team.losses}}</h4>
+                </ion-col>
+                <ion-col>
+                    <h4>{{team.goalsBalance}}</h4>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+    </ion-list>
+
+
+    <!--<ion-list>
+        <ion-item-group *ngFor="let division of allStandings">
+
+            <ion-item *ngFor="let team of division.divisionStandings">
+
+            </ion-item>
+        </ion-item-group>
+    </ion-list>-->
+</ion-content>

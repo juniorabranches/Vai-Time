@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar></ion-navbar>
+</ion-header>
+
+<ion-content class="signup-background">
+
+  <ion-card *ngIf=!isNews>
+    <ion-card-header class="my-teams-header">Em processo de atualização</ion-card-header>
+    <ion-card-content>
+        <p>Ainda não publicamos notícias do {{team.name}}</p>
+        <p>Em breve estará disponível :)</p>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list *ngIf=isNews>
+    <ion-card *ngFor="let new of newsTeam" (click)="openNewsTeam($event, new)">
+      <img src={{new.img}}/>
+      <ion-card-content class="cardNews">
+        <ion-card-title class="title"> {{new.title}} </ion-card-title>
+        <h3>{{new.fonte}}</h3>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+
+</ion-content>

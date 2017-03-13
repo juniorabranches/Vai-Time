@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-navbar></ion-navbar>
+</ion-header>
+
+<ion-content  class="signup-background">
+
+  <ion-card *ngIf=!temPlayer>
+    <ion-card-header class="my-teams-header">Em processo de atualização</ion-card-header>
+    <ion-card-content>
+        <p>Estamos atualizando o elenco do {{team.name}}</p>
+        <p>Em breve estará disponível :)</p>
+
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-list *ngIf=temPlayer [virtualScroll]="players" [approxItemHeight]="'132px'" [headerFn]="getHeader">
+
+      <ion-item-divider color="secondary" *virtualHeader="let header">
+          {{header}}
+      </ion-item-divider>
+
+      <ion-item ion-item *virtualItem="let players">
+
+
+          <ion-thumbnail item-left>
+            <img src={{players.img}} style="width:40px">
+          </ion-thumbnail>
+          <ion-row>
+            <ion-col width-40 text-left>
+              <h3>{{players.name}}</h3>
+            </ion-col>
+            <ion-col width-10 text-center>
+              <img src="./assets/images/ball.png">
+              <p>{{players.goals}}</p>
+            </ion-col>
+            <ion-col width-10 text-center>
+              <img src="./assets/images/chuteira.png">
+              <p>{{players.goalsAssist}}</p>
+            </ion-col>
+            <ion-col width-10 text-center>
+              <img src="./assets/images/yellowCard.png">
+              <p>{{players.yellowCard}}</p>
+            </ion-col>
+            <ion-col width-10 text-center>
+              <img src="./assets/images/redCard.png">
+              <p>{{players.redCard}}</p>
+            </ion-col>
+            <ion-col width-15 text-right>
+              <p>nº {{players.number}}</p>
+            </ion-col>
+          </ion-row>
+
+
+      </ion-item>
+  </ion-list>
+
+</ion-content>

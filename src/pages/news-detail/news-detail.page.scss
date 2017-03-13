@@ -1,0 +1,24 @@
+.my-teams-header{
+    font-weight: bold;
+    font-size: large;
+}
+
+.signup-background {
+  background: url('../assets/images/background.png') no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+.title{
+  text-align: center;
+  font-size: 18px;
+  color : #003300 !important;
+}
+
+.cardNews{
+  text-align: justify;
+  color : #003300 !important;
+  p {
+    text-align: justify;
+  }
+}

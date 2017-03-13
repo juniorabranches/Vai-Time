@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button menuToggle ion-button icon-only>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Vai Time!</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="signup-background">
+
+  <ion-toolbar color="secondary"> <ion-title>Fala Torcedor!</ion-title></ion-toolbar>
+
+    <!--<button *ngIf="temLoginface" ion-button clear class="buttonTorcedor" icon-left item-right color="facebookColor" (click)="goToSuggestions()"><ion-icon name="md-chatboxes"></ion-icon>Fala Torcedor!</button>-->
+    <ion-item *ngIf="!temLoginface">
+      <h3 class="textLabel">Para entrar no chat</h3>
+      <h3 class="textLabel"> entre com o Facebook</h3>
+      <button ion-button clear icon-left item-right color="facebookColor" (click)="onLoginFace()"><ion-icon name="md-person"></ion-icon>Facebook</button>
+    </ion-item>
+
+    <ion-card *ngIf="temLoginface">
+
+      <ion-row>
+        <ion-thumbnail item-center>
+          <img class="imgUser" src={{userPhoto}} style="width:40px">
+        </ion-thumbnail>
+        <ion-item>
+          <ion-label>Nome</ion-label>
+          <ion-input disabled="true" [(ngModel)]="userName" type="text"></ion-input>
+        </ion-item>
+      </ion-row>
+      <ion-item>
+        <ion-label>Comentário</ion-label>
+        <ion-textarea style="height:70px" [(ngModel)]="sugestion"  type="text"></ion-textarea>
+      </ion-item>
+      <button ion-button icon-left block color="facebookColor" class="buttonEnviar" (click)="sendMessage(userName, userPhoto, null, sugestion)"  ><ion-icon name="md-football"></ion-icon>Enviar</button>
+
+    </ion-card>
+    <div *ngFor="let item of suggestions; let i=index">
+      <ion-card *ngIf="i<=numberMsgs">
+
+          <ion-item>
+            <ion-avatar item-left>
+              <img src="{{item.photo}}">
+            </ion-avatar>
+            <h2>{{item.user}}</h2>
+            <p> {{item.date}} - {{item.hour}}:{{item.minutes}}:{{item.seconds}}</p>
+          </ion-item>
+
+          <ion-card-content>
+            <p>{{item.sugestion}}</p>
+          </ion-card-content>
+        
+
+      </ion-card>
+    </div>
+</ion-content>
+<ion-footer bottom>
+  <button *ngIf="numberMsgs<allMsgs" icon-left ion-button (click)="moreMessages(5)" class="buttonMoreMsgs">  <ion-icon icon-right name="md-add-circle"></ion-icon>Mais Mensagens</button>
+</ion-footer>

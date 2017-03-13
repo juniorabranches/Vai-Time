@@ -1,0 +1,71 @@
+<ion-header>
+    <ion-navbar></ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher (ionRefresh)="refreshAll($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-card>
+        <ion-card-content>
+            <ion-row>
+                <ion-col width-50 text-left>
+
+                    <ion-badge color="primary" >V: {{teamStanding.wins}}</ion-badge>
+                    <ion-badge color="secondary" >E: {{teamStanding.draws}}</ion-badge>
+                    <ion-badge color="danger" >D: {{teamStanding.losses}}</ion-badge>
+                    <br>
+                    <p>Técnico: {{team.coach}}</p>
+                    <h3 *ngIf="team.deleted" class="eliminado" color="white">ELIMINADO</h3>                    
+                </ion-col>
+                <ion-col width-50 text-right>
+                    <button ion-button icon-left outline (click)="toggleFollow()" *ngIf="!isFollowing">
+                        <ion-icon name="star"></ion-icon>
+                        Seguir Time
+                    </button>
+                    <button ion-button icon-only (click)="toggleFollow()" *ngIf="isFollowing">
+                        <ion-icon name="star"></ion-icon>
+                    </button>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col width-30 text-left>
+                <ion-item>
+                  <ion-thumbnail item-left>
+                    <img class="escudoTime" src={{team.img}}>
+                  </ion-thumbnail>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-item>
+                <ion-label>Filtrar por Data:</ion-label>
+                <ion-toggle [(ngModel)]="useDateFilter" (ionChange)="dateChanged()"></ion-toggle>
+                <ion-datetime displayFormat="D/M/YYYY" pickerFormat="D/M/YYYY"
+                    [(ngModel)]="dateFilter" (ionChange)="dateChanged()"
+                    [(disabled)]="!useDateFilter"></ion-datetime>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
+
+
+    <ion-list>
+        <ion-item *ngFor="let game of games" (click)="gameClicked($event, game)">
+            <ion-row>
+                <ion-col width-20>
+                    <p>{{game.time | date:'d/M/yy'}}</p>
+                    <p>{{game.time | date:'HH:mm'}}</p>
+                </ion-col>
+                <ion-col width-60>
+                    <p>{{game.homeAway}} {{game.opponent}} - {{game.aonde}}</p>
+                    <p>{{game.location}}</p>
+                </ion-col>
+                <ion-col width-20>
+                    <h4>{{game.scoreDisplay}}</h4>
+                    <!--<ion-badge [class]="getScoreDisplayBadgeClass(game)">{{getScoreWorL(game)}}</ion-badge>-->
+                    <ion-badge [color]="getScoreDisplayBadgeClass(game)">{{getScoreWorL(game)}}</ion-badge>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+    </ion-list>
+</ion-content>

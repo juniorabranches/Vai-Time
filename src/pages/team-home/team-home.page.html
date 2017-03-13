@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>{{team.name}}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="goHome()">
+                <ion-icon name="home"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-tabs class="tab" color="primary">
+    <ion-tab  class="tab" color="primary"  tabTitle="Time" [root]="teamDetailTab" [rootParams]="team" tabIcon="md-football"></ion-tab>
+    <ion-tab  class="tab" color="primary"  tabTitle="Elenco" [root]="teamPlayersTab" [rootParams]="team" tabIcon="md-people"></ion-tab>
+    <ion-tab  class="tab" color="primary"  tabTitle="Classificação" [root]="standingsTab" [rootParams]="team" tabIcon="md-podium"></ion-tab>
+    <ion-tab  class="tab" color="primary"  tabTitle="Notícias" [root]="teamNewsTab" [rootParams]="team" tabIcon="md-book"></ion-tab>    
+</ion-tabs>

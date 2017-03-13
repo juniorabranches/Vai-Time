@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Campeonatos</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+
+        <ion-item ion-item *ngFor="let item of tournaments" (click)="itemTapped($event, item)">
+          <ion-thumbnail item-left>
+            <img src={{item.img}} style="width:40px">
+          </ion-thumbnail>
+          <h3>{{item.name}}</h3>
+          <button ion-button clear item-right><ion-icon name="md-arrow-forward"></ion-icon></button>
+        </ion-item>
+
+    </ion-list>
+</ion-content>

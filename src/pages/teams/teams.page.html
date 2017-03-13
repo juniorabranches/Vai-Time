@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Times</ion-title>
+    </ion-navbar>
+
+    <ion-toolbar>
+        <ion-searchbar placeholder="Buscar Times..."
+                       [(ngModel)]="queryText"
+                       (ionInput)="updateTeams()">
+        </ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item-group *ngFor="let division of teams">
+            <ion-item-divider color="secondary">{{division.divisionName}}</ion-item-divider>
+
+            <ion-item ion-item *ngFor="let team of division.divisionTeams" (click)="itemTapped($event, team)">
+
+                <ion-thumbnail item-left>
+                  <img src={{team.img}} style="width:40px">
+                </ion-thumbnail>
+                <h3>{{team.name}}</h3>
+                <h3 *ngIf="team.deleted" class="eliminado" color="white">ELIMINADO</h3>
+                <button ion-button clear item-right><ion-icon name="md-arrow-forward"></ion-icon></button>
+
+            </ion-item>
+
+
+        </ion-item-group>
+    </ion-list>
+</ion-content>

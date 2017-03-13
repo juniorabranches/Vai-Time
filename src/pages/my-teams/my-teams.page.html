@@ -1,0 +1,120 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button menuToggle ion-button icon-only>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Vai Time!</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="signup-background">
+
+  <ion-toolbar color="secondary"> <ion-title>Últimas Notícias</ion-title></ion-toolbar>
+  <ion-slides class="slides" [options]="slideOptions">
+      <ion-slide *ngFor="let item of news; let i=index"  (click)="newsTapped($event, item)">
+        <ion-thumbnail item-center>
+          <img class="imgSlide" src="{{item.shedule}}" style="width:40px">
+        </ion-thumbnail>
+        <h2 class="titleNews">{{item.title}}</h2>
+        <p class="fonteNews">{{item.fonte}}</p>
+      </ion-slide>
+  </ion-slides>
+  <button icon-left ion-button full (click)="goToNews()">  <ion-icon icon-right name="md-add-circle"></ion-icon>Mais Notícias</button>
+
+  <ion-toolbar color="secondary"> <ion-title>Meus Times</ion-title></ion-toolbar>
+  <ion-list *ngIf="logouFace">
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src={{photo}}>
+      </ion-thumbnail>
+      <h2>Olá {{name}}</h2>
+      <p>Seja bem-vindo!</p>
+      <button *ngIf="botaoFace" ion-button clear icon-left item-right color="facebookColor" (click)="onLoginFace()"><ion-icon name="md-person"></ion-icon>Facebook</button>
+    </ion-item>
+    <ion-item>
+      <!--<button *ngIf="!botaoFace" ion-button clear icon-left item-right color="facebookColor" (click)="goToSuggestions()"><ion-icon name="md-chatboxes"></ion-icon>Fala Torcedor!</button>-->
+      <button ion-button clear icon-left item-right color="facebookColor" (click)="goToSuggestionsDetails()"><ion-icon name="md-chatboxes"></ion-icon>Fala Torcedor!</button>
+    </ion-item>
+  </ion-list>
+
+    <ion-card *ngIf="semFavoritos">
+        <ion-card-header class="my-teams-header">Sem Time nos Favoritos</ion-card-header>
+        <ion-card-content>
+            <p>Atualmente você não esta seguindo nenhum time.</p>
+            <p>Selecione um campeonato para buscar times.</p>
+            <button ion-button icon-left full (click)="goToTournaments()">
+                <ion-icon name="search"></ion-icon>
+                Buscar Campeonatos
+            </button>
+        </ion-card-content>
+    </ion-card>
+
+
+    <ion-card *ngIf="!semFavoritos">
+        <ion-list>
+            <ion-list-header class="my-teams-header">Times Seguidos</ion-list-header>
+
+              <ion-item *ngFor="let item of favorites" (click)="favoriteTapped($event, item)">
+                <ion-thumbnail item-left>
+                  <img src="{{item.team.img}}" style="width:40px">
+                </ion-thumbnail>
+                <h2>{{item.team.name}}</h2>
+                <p>{{item.tournamentName}}</p>
+
+              </ion-item>
+
+        </ion-list>
+        <ion-card-content>
+            <p>Para seguir mais times, selecione os campeonatos.</p>
+            <button icon-left ion-button full (click)="goToTournaments()">
+                <ion-icon name="search"></ion-icon>
+                Buscar Campeonatos
+            </button>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-toolbar color="secondary"> <ion-title>Tabelas</ion-title></ion-toolbar>
+    <ion-card>
+        <!--<ion-list-header class="my-teams-header">Tabelas</ion-list-header>-->
+        <ion-card-content>
+            <br>
+            <p>Confira os resultados dos últimos jogos..</p>
+            <button ion-button icon-left full (click)="goToResultGames()">
+                <ion-icon name="md-podium"></ion-icon>
+                Resultados
+            </button>
+        </ion-card-content>
+        <ion-card-content>
+            <p>Confira aqui os próximos jogos..</p>
+            <p>Eles serão listados por Campeonato e por Data</p>
+            <button ion-button icon-left full (click)="goToNextGames()">
+                <ion-icon name="md-football"></ion-icon>
+                Próximos Jogos
+            </button>
+        </ion-card-content>
+    </ion-card>
+
+    <!--<ion-card>
+        <ion-list>
+              <ion-list-header class="my-teams-header">Últimas Notícias</ion-list-header>
+              <div  *ngFor="let item of news; let i=index">
+                <ion-item *ngIf="i<5" (click)="newsTapped($event, item)">
+
+
+                  <ion-thumbnail item-left>
+                    <img src="{{item.shedule}}" style="width:40px">
+                  </ion-thumbnail>
+                    <!--<ion-avatar item-center> <img src={{item.shedule}} style="width:30px; height:30px"> </ion-avatar>
+                  <h2 class="titleNews">{{item.title}}</h2>
+                  <p>{{item.description}}</p>
+
+
+                </ion-item>
+
+
+              </div>
+              <button icon-left ion-button full (click)="goToNews()">  <ion-icon icon-right name="md-add-circle"></ion-icon>Mais Notícias</button>
+
+        </ion-list>
+    </ion-card> -->
+</ion-content>

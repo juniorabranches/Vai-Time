@@ -1,0 +1,94 @@
+<ion-header>
+    <ion-navbar color="primary"  >
+<!--        <button menuToggle ion-button icon-only>
+            <ion-icon name="menu"></ion-icon>
+        </button>-->
+        <ion-title>Vai Time!</ion-title>
+    </ion-navbar>
+    <!--<ion-toolbar transparent >
+        <ion-title><p class="loginText">Sobre</p></ion-title>
+    </ion-toolbar>-->
+</ion-header>
+
+
+<ion-content class="signup-background">
+
+  <div padding [@flyInBottomFast]="cloudState" id="cloud-layer">
+
+    <ion-row>
+      <ion-col>
+        <img [@flyInBottomSlow]="logoState" src="./assets/images/vaiTimeLogoOficial1.png" class="logo" />
+      </ion-col>
+    </ion-row>
+
+
+
+  <!--<div class="about-header">
+
+  </div>-->
+  <!--<img src="../assets/images/vaiTimeLogoOficial1.png" class="logo">
+  <br><br><br><br><br><br><br><br><br><br>-->
+      <div padding class="about-info">
+        <!--<h4 class="title" >Vai Time!</h4>-->
+        <br><br>    <br><br>    <br><br><br><br><br><br>
+        <ion-list  [@bounceInBottom]="formState">
+          <ion-item>
+            <ion-icon name="md-information-circle" item-left></ion-icon>
+            <ion-label >Versão</ion-label>
+            <ion-label class="labelInfo">5.8</ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-icon name="md-calendar" item-left></ion-icon>
+            <ion-label >Data Versão:</ion-label>
+            <ion-label class="labelInfo">02/03/2017</ion-label>
+          </ion-item>
+
+          <ion-item>
+            <label>Redes Sociais</label>
+            <ion-icon (click)="openApp('https://www.facebook.com/vaitimeapp/')" name="logo-facebook" md="logo-facebook" item-right></ion-icon>
+            <ion-icon (click)="openApp('https://www.instagram.com/vaitime.app/')" name="logo-instagram" md="logo-instagram" item-right></ion-icon>
+          </ion-item>
+
+
+            <!--<p class="textAbout">
+              Acompanhe seu time do coração, todos os Campeonatos em disputa,
+              o desempenho dos rivais, horários e locais dos jogos, placares, classificação..
+              Fique por dentro do esporte mais apaixonante do Brasil,
+              vibre com seu time, de olho atento pela disputa dos canécos.
+              Compartilhe com os amigos, os amantes do Futebol vão amar e gritar..
+            </p>
+            <h4 class="title">.. Vai Time!</h4>-->
+
+
+        </ion-list>
+
+      </div>
+
+    </div>
+
+    <ion-fab right bottom>
+      <button ion-fab ><ion-icon name="md-share"></ion-icon></button>
+      <ion-fab-list side="top">
+        <button ion-fab (click)="facebookShare()">
+          <ion-icon name="logo-facebook"></ion-icon>
+          <ion-label dir="rtl">Facebook</ion-label>
+        </button>
+
+        <!--<button ion-fab (click)="instagramShare()">
+          <ion-icon name="logo-instagram"></ion-icon>
+          <ion-label dir="rtl">Instagram</ion-label>
+        </button>-->
+
+        <button ion-fab color="primary"  (click)="twitterShare()">
+          <ion-icon name="logo-twitter"></ion-icon>
+          <ion-label dir="rtl">Twitter</ion-label>
+        </button>
+
+        <button ion-fab (click)="whatsappShare()">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+          <ion-label dir="rtl">Whattsapp</ion-label>
+        </button>
+      </ion-fab-list>
+    </ion-fab>
+</ion-content>

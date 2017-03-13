@@ -1,0 +1,66 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "233047557134754",
+            "APP_NAME": "VaiTime!",
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "cordova-plugin-nativestorage": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "cordova-plugin-apprate": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "br.com.abranches.vaitime"
+        }
+    }
+}

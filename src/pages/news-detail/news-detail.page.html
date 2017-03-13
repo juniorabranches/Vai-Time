@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button menuToggle ion-button icon-only>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Vai Time!</ion-title>
+    </ion-navbar>
+    <ion-toolbar color="secondary">
+        <ion-title>Notícias</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="signup-background">
+
+  <ion-card>
+    <img src={{new.img}}/>
+    <ion-card-content class="cardNews">
+      <ion-card-title class="title"> {{new.title}} </ion-card-title>
+      <h3>{{new.fonte}}</h3>
+      <p>
+        {{new.description}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab ><ion-icon name="md-share"></ion-icon></button>
+    <ion-fab-list side="top">
+
+      <button ion-fab (click)="facebookShare(new.title,new.shedule,new.url)">
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-label dir="rtl">Facebook</ion-label>
+      </button>
+
+      <!--<button ion-fab (click)="instagramShare(new.title,new.shedule)">
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-label dir="rtl">Instagram</ion-label>
+      </button>-->
+
+      <button ion-fab color="primary"  (click)="twitterShare(new.title,new.shedule,new.url)">
+        <ion-icon name="logo-twitter"></ion-icon>
+        <ion-label dir="rtl">Twitter</ion-label>
+      </button>
+
+      <button ion-fab (click)="whatsappShare(new.title,new.shedule,new.url)">
+        <ion-icon name="logo-whatsapp"></ion-icon>
+        <ion-label dir="rtl">Whattsapp</ion-label>
+      </button>
+
+    </ion-fab-list>
+  </ion-fab>
+
+
+</ion-content>

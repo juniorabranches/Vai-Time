@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button menuToggle ion-button icon-only>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Vai Time!</ion-title>
+    </ion-navbar>
+    <ion-toolbar color="secondary">
+        <ion-title>Notícias</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="signup-background">
+
+
+  <ion-card>
+
+    <ion-list>
+          <ion-list-header class="my-teams-header">Notícias</ion-list-header>
+          <ion-card *ngFor="let item of news">
+            <ion-item  (click)="newsTapped($event, item)">
+
+
+
+            <img src={{item.img}}/>
+            <ion-thumbnail item-left>
+              <img src={{item.shedule}}  style="width:40px">
+            </ion-thumbnail>
+            <p class="title">{{item.title}}</p>
+            <!--<div class="card-subtitle">{{item.description}}</div>-->
+
+                  <!--<ion-thumbnail item-left>
+                    <img src={{item.shedule}} style="width:30px; height:30px">
+                  </ion-thumbnail>
+                    <h2 class="titleNews">{{item.title}}</h2>
+                  <p>{{item.description}}</p>-->
+
+
+            </ion-item>
+          </ion-card>
+
+    </ion-list>
+
+  </ion-card>
+
+
+
+
+
+
+
+
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar color="primary">
+<!--        <button menuToggle ion-button icon-only>
+            <ion-icon name="menu"></ion-icon>
+        </button>-->
+        <ion-title>Vai Time!</ion-title>
+    </ion-navbar>
+    <!--<ion-toolbar transparent >
+        <ion-title><p class="loginText">Login</p></ion-title>
+    </ion-toolbar>-->
+</ion-header>
+
+<ion-content class="signup-background">
+
+  <!--<div padding [@flyInBottomFast]="cloudState" id="cloud-layer">-->
+
+    <ion-row>
+      <ion-col>
+        <!--<img [@flyInBottomSlow]="logoState" src="./assets/images/vaiTimeLogoOficial1.png" class="logo" />-->
+        <img src="./assets/images/vaiTimeLogoOficial1.png" class="logo" />
+      </ion-col>
+    </ion-row>
+
+    <!--<ion-list inset [@bounceInBottom]="formState">-->
+    <ion-list inset >
+      <button ion-button icon-left block color="facebookColor" class="buttonLoginFace" (click)="onLoginFace()"  ><ion-icon name="md-person"></ion-icon>Facebook</button>
+      <button ion-button icon-left block color="white" class="buttonLogin" (click)="onLogin()"  ><ion-icon name="md-football"></ion-icon>Entrar</button>
+    </ion-list>
+
+  
+
+</ion-content>
