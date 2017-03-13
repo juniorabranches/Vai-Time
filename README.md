@@ -12,6 +12,6 @@
 * https://play.google.com/store/apps/details?id=br.com.abranches.vaitime
 
 
-# Approved in the Facebook Start program
+# Approved in the Facebook Start Program
  ![https://developers.facebook.com/fbstart](https://scontent.ffor8-2.fna.fbcdn.net/v/t39.2365-6/13695317_1239569306055120_1303894115_n.png?oh=07be49aa548e928637942e702285472e&oe=592F3F94)
 * https://developers.facebook.com/fbstart
